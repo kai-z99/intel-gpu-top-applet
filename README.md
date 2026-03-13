@@ -43,10 +43,10 @@ intel_gpu_top -J -s 1000 -o -
 sudo visudo
 ```
 
-Add this line (replace `kai` if needed):
+Add this line (replace `your_username` with your Linux username):
 
 ```text
-kai ALL=(root) NOPASSWD: /usr/bin/intel_gpu_top
+your_username ALL=(root) NOPASSWD: /usr/bin/intel_gpu_top
 ```
 
 Then restart Cinnamon (`cinnamon --replace` or relogin).  
