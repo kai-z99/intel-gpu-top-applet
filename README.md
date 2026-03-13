@@ -10,7 +10,13 @@ This applet displays current Intel GPU usage in the Cinnamon panel using `intel_
 ## Install
 
 ```bash
-cd /home/kai/Documents/repos/random/gputop
+# If you already have the repo:
+cd /path/to/gputop
+
+# Or clone it first, then enter it:
+# git clone <your-repo-url> gputop
+# cd gputop
+
 chmod +x build.sh
 ./build.sh
 ```
