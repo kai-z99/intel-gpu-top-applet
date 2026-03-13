@@ -37,7 +37,21 @@ After install:
 intel_gpu_top -J -s 1000 -o -
 ```
 
-- Permission errors: `intel_gpu_top` may require elevated perf permissions depending on distro config.
+- Make `intel_gpu_top` work headless **without sudo**:
+
+```bash
+# 1) Allow unprivileged perf access (persistent)
+echo "kernel.perf_event_paranoid=1" | sudo tee /etc/sysctl.d/60-intel-gpu-top.conf
+sudo sysctl --system
+
+# 2) Ensure your user can access GPU nodes
+sudo usermod -aG render,video "$USER"
+
+# 3) Log out/in, then verify no sudo is needed
+intel_gpu_top -J -s 1000 -o -
+```
+
+If your distro is stricter, try `kernel.perf_event_paranoid=0` (or `-1`) in the same sysctl file.
 
 ## Verification Checklist
 
