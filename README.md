@@ -37,21 +37,20 @@ After install:
 intel_gpu_top -J -s 1000 -o -
 ```
 
-- Make `intel_gpu_top` work headless **without sudo**:
+- One-time setup (recommended): allow Cinnamon to run only `intel_gpu_top` without password.
 
 ```bash
-# 1) Allow unprivileged perf access (persistent)
-echo "kernel.perf_event_paranoid=1" | sudo tee /etc/sysctl.d/60-intel-gpu-top.conf
-sudo sysctl --system
-
-# 2) Ensure your user can access GPU nodes
-sudo usermod -aG render,video "$USER"
-
-# 3) Log out/in, then verify no sudo is needed
-intel_gpu_top -J -s 1000 -o -
+sudo visudo
 ```
 
-If your distro is stricter, try `kernel.perf_event_paranoid=0` (or `-1`) in the same sysctl file.
+Add this line (replace `kai` if needed):
+
+```text
+kai ALL=(root) NOPASSWD: /usr/bin/intel_gpu_top
+```
+
+Then restart Cinnamon (`cinnamon --replace` or relogin).  
+Status should switch from fallback to `OK (intel_gpu_top via sudo -n)`.
 
 ## Verification Checklist
 
