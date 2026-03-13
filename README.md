@@ -11,34 +11,14 @@ This applet displays current Intel GPU usage in the Cinnamon panel using `intel_
 
 ```bash
 
-# git clone https://github.com/kai-z99/intel-gpu-top-applet.git
-# cd intel-gpu-top-applet
+git clone https://github.com/kai-z99/intel-gpu-top-applet.git
+cd intel-gpu-top-applet
 chmod +x build.sh
 ./build.sh
 ```
 
+
 After install:
-
-1. Restart Cinnamon (or log out/in). You can also try `cinnamon --replace`.
-2. Open panel applets and add **Intel GPU Top**.
-
-## What It Shows
-
-- Panel label example: `GPU 37%`
-- Tooltip includes last update time and status.
-- If `intel_gpu_top` is missing or output cannot be parsed, applet shows fallback text instead of crashing.
-
-## Troubleshooting
-
-- `GPU n/a`: `intel_gpu_top` is likely not installed or not in PATH.
-- `GPU ?`: command ran but output could not be parsed; check command manually:
-
-```bash
-intel_gpu_top -J -s 1000 -o -
-```
-
-- One-time setup (recommended): allow Cinnamon to run only `intel_gpu_top` without password.
-
 ```bash
 sudo visudo
 ```
@@ -49,15 +29,14 @@ Add this line (replace `your_username` with your Linux username):
 your_username ALL=(root) NOPASSWD: /usr/bin/intel_gpu_top
 ```
 
-Then restart Cinnamon (`cinnamon --replace` or relogin).  
-Status should switch from fallback to `OK (intel_gpu_top via sudo -n)`.
+1. Restart Cinnamon
+2. Open panel applets and add **Intel GPU Top**.
 
-## Verification Checklist
+## What It Shows
 
-- Run `./build.sh` and confirm applet files appear in `~/.local/share/cinnamon/applets/intel-gputop@kai`.
-- Add the applet in Cinnamon and verify the panel label updates like `GPU 12%`.
-- Stop or hide `intel_gpu_top` from PATH and verify fallback label `GPU n/a`.
-- Force a bad command output (or parser mismatch) and verify fallback label `GPU ?` without applet crash.
+- Panel label example: `GPU 37%`
+- Graph of usage % history
+- Tooltip includes last update time and status.
 
 ## Uninstall
 
