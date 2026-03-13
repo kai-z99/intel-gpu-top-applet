@@ -1,0 +1,7 @@
+{
+  "uuid": "intel-gputop@kai",
+  "name": "Intel GPU Top",
+  "description": "Shows current Intel GPU usage with intel_gpu_top.",
+  "version": "1.0.0",
+  "max-instances": 1
+}

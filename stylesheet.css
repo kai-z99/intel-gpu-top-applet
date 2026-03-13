@@ -1,0 +1,18 @@
+.intel-gputop {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.intel-gputop-container {
+    spacing: 0;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.intel-gputop-graph {
+    width: 54px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
