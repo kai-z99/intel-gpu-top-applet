@@ -10,13 +10,9 @@ This applet displays current Intel GPU usage in the Cinnamon panel using `intel_
 ## Install
 
 ```bash
-# If you already have the repo:
-cd /path/to/gputop
 
-# Or clone it first, then enter it:
-# git clone <your-repo-url> gputop
-# cd gputop
-
+# git clone https://github.com/kai-z99/intel-gpu-top-applet.git
+# cd intel-gpu-top-applet
 chmod +x build.sh
 ./build.sh
 ```
